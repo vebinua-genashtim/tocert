@@ -27,12 +27,19 @@ const ContactUs = () => {
     setSubmitError('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const payload = {
+        name: formData.fullName,
+        email: formData.email,
+        company: formData.companyName,
+        message: formData.message,
+      };
+
+      const response = await fetch('/send-contact-email.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
@@ -41,15 +48,19 @@ const ContactUs = () => {
 
       const result = await response.json();
 
-      setSubmitSuccess(true);
-      setShowPopup(true);
-      setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
-        message: '',
-      });
-      setTimeout(() => setSubmitSuccess(false), 5000);
+      if (result.success) {
+        setSubmitSuccess(true);
+        setShowPopup(true);
+        setFormData({
+          fullName: '',
+          companyName: '',
+          email: '',
+          message: '',
+        });
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitError('Failed to submit form. Please try again.');
