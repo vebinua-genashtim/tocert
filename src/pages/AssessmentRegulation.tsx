@@ -35,7 +35,7 @@ const AssessmentRegulation = () => {
                       <span className="inline-block w-2 h-2 rounded-full bg-honey-500 mt-2 mr-3 flex-shrink-0"></span>
                       <span className="text-gray-700 leading-relaxed">For certification audit, surveillance audit, Client shall allow access to the necessary places, premises and documentation for auditing. Client shall also allow such as access equally for special audit or confirmation which may be conducted by the accreditation body. If Client does not allow these without good reason, its Certification can be suspended or withdrawn.</span>
                     </li>
-                    <li className="flex items-start ml-2">
+                    <li className="flex items-start">
                       <span className="inline-block w-2 h-2 rounded-full bg-honey-500 mt-2 mr-3 flex-shrink-0"></span>
                       <span className="text-gray-700 leading-relaxed">In the case that certain specific data or other information related to legal or regulatory compliance are not made available to TO-CERT for review because of an assertion of legal privilege of proprietary nature, registration shall not be granted, unless Client can obtain demonstration by objective evidence that full system requirements relating to legal compliance have been effectively implemented by sufficiently documented and verifiable means.</span>
                     </li>
