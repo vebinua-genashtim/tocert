@@ -1,4 +1,4 @@
-import { Shield, Scale, Info } from 'lucide-react';
+import { Shield, Scale, Info, Globe, Zap, Heart, Users } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 
 const AboutUs = () => {
@@ -153,6 +153,86 @@ const AboutUs = () => {
                     subcontracted auditors are treated as fulltime TO-CERT personnel and shall strictly carry out
                     certification activities in accordance with the ISO 9001 standard and TO-CERT documented
                     management system.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-honey-600 mb-4">Our Values</h2>
+            <div className="h-1 w-24 bg-gradient-to-r bg-honey-500 mx-auto rounded-full mb-6" />
+            <p className="text-xl text-gray-600">The principles that guide everything we do.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="group bg-gradient-to-br from-honey-50 to-amber-50 rounded-2xl p-8 border-2 border-honey-200 hover:border-honey-500 hover:shadow-xl transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br bg-honey-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Globe className="w-8 h-8 text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-honey-600 mb-3">Global Mindset</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    We are global citizens with a global service mindset, going beyond borders to serve our
+                    clients across all time zones.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group bg-gradient-to-br from-honey-50 to-amber-50 rounded-2xl p-8 border-2 border-honey-200 hover:border-honey-500 hover:shadow-xl transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br bg-honey-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Zap className="w-8 h-8 text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-honey-600 mb-3">Agility</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    We move quickly and intentionally, restructuring and re-positioning with ease to take
+                    advantage of opportunities that grow our businesses, create impact, and serve our clients better.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group bg-gradient-to-br from-honey-50 to-amber-50 rounded-2xl p-8 border-2 border-honey-200 hover:border-honey-500 hover:shadow-xl transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br bg-honey-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Heart className="w-8 h-8 text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-honey-600 mb-3">Integrity</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    We are true to ourselves and true to others, knowing that we can exist only if we deliver
+                    value to our clients with transparency.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group bg-gradient-to-br from-honey-50 to-amber-50 rounded-2xl p-8 border-2 border-honey-200 hover:border-honey-500 hover:shadow-xl transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br bg-honey-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Users className="w-8 h-8 text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-honey-600 mb-3">Accountability</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    We stand by what we do, acknowledge our responsibilities and flaws, and consistently explore
+                    the best solutions to meet our stakeholders' expectations.
                   </p>
                 </div>
               </div>
