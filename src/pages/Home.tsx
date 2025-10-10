@@ -271,7 +271,7 @@ const Home = ({ setCurrentPage }: { setCurrentPage: (page: string) => void }) =>
           </h2>
 
           <p className="text-lg text-gray-300 mb-6 leading-relaxed max-w-3xl mx-auto">
-            Partner with TO-CERT for independent, rigorous assurance services that build credibility and demonstrate your commitment to sustainability and quality excellence.
+            Partner with TO-CERT for independent, rigorous assurance services that build credibility and demonstrate your commitment to sustainability and quality excellence
           </p>
 
           <div className="flex justify-center items-center">
