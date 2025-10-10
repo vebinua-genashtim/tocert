@@ -18,7 +18,7 @@ const AssessmentRegulation = () => {
               <div className="space-y-6">
                 <div className="border-l-4 border-honey-500 pl-6 py-3 bg-honey-50/50 rounded-r-lg transition-all hover:bg-honey-100/50">
                   <p className="text-base leading-relaxed text-gray-800">
-                    <strong className="text-honey-600">1. Client shall observe the guidance on the quality management system standard and its procedure, requirements and regulations relating certification</strong>
+                    <strong className="text-honey-600">1. Client shall observe the guidance on the quality management system standard and its procedure, requirements and regulations relating certification.</strong>
                   </p>
                 </div>
 
