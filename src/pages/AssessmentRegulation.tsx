@@ -98,7 +98,7 @@ const AssessmentRegulation = () => {
 
                 <div className="border-l-4 border-honey-500 pl-6 py-3 bg-honey-50/50 rounded-r-lg transition-all hover:bg-honey-100/50">
                   <p className="text-base leading-relaxed text-gray-800">
-                    <strong className="text-honey-600">10. Once agreed to appoint TO-CERT, Client shall pay the audit fee to TO-CERT, and if Client does not pay the costs without any particular reason for more than 3 months, TO-CERT can proceed to suspend/ withdraw certification.</strong>
+                    <strong className="text-honey-600">10. Once agreed to appoint TO-CERT, Client shall pay the audit fee to TO-CERT, and if Client does not pay the costs without any particular reason for more than 3 months, TO-CERT can proceed to suspend / withdraw certification.</strong>
                   </p>
                 </div>
 
