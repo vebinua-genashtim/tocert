@@ -121,7 +121,7 @@ const AssessmentRegulation = () => {
                 </div>
 
                 <div className="border-l-4 border-honey-500 pl-6 py-3 bg-honey-50/50 rounded-r-lg transition-all hover:bg-honey-100/50">
-                  <p className="text-base leading-relaxed text-gray-800 mb-2">
+                  <p className="text-base leading-relaxed text-gray-800 mb-3">
                     <strong className="text-honey-600">14. Upon the certification approval, TO-CERT shall issue the certificate to the Client accordingly.</strong>
                   </p>
                   <p className="text-sm text-gray-600 italic ml-2">Note: The issued certificate shall remain as the property of TO-CERT</p>
