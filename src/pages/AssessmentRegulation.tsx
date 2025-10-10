@@ -336,7 +336,7 @@ const AssessmentRegulation = () => {
 
                 <div className="border-l-4 border-honey-500 pl-6 py-3 bg-honey-50/50 rounded-r-lg transition-all hover:bg-honey-100/50">
                   <p className="text-base mb-4 text-gray-800">
-                    <strong className="text-honey-600">32. When both Client and TO-CERT cannot reach a consensus on a particular appeal case, it shall be relegated to the following mediators</strong>
+                    <strong className="text-honey-600">32. When both Client and TO-CERT cannot reach a consensus on a particular appeal case, it shall be relegated to the following mediators:</strong>
                   </p>
                   <ul className="list-none space-y-3 ml-2">
                     <li className="flex items-start">
