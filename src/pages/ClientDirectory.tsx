@@ -11,17 +11,54 @@ const ClientDirectory = () => {
     message: '',
   });
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setShowConfirmation(true);
-    setFormData({
-      name: '',
-      contact: '',
-      email: '',
-      country: '',
-      message: '',
-    });
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.contact,
+        message: `Country: ${formData.country}\n\nEnquiry Details:\n${formData.message}`,
+      };
+
+      const response = await fetch('/api/send-contact-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setShowConfirmation(true);
+        setFormData({
+          name: '',
+          contact: '',
+          email: '',
+          country: '',
+          message: '',
+        });
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('Failed to submit enquiry. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,6 +88,12 @@ const ClientDirectory = () => {
                 Our team will respond to your enquiry within 2-3 business days.
               </p>
             </div>
+
+            {submitError && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-300 rounded-lg">
+                <p className="text-red-700 font-medium">{submitError}</p>
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -135,10 +178,11 @@ const ClientDirectory = () => {
 
               <button
                 type="submit"
-                className="w-full bg-honey-500 hover:bg-honey-600 text-honey-600 py-4 px-6 rounded-lg font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 transform hover:scale-[1.02] duration-200 uppercase tracking-wide text-sm"
+                disabled={isSubmitting}
+                className="w-full bg-honey-500 hover:bg-honey-600 text-honey-600 py-4 px-6 rounded-lg font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 transform hover:scale-[1.02] duration-200 uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={20} />
-                Submit Enquiry
+                {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
               </button>
             </form>
           </div>
