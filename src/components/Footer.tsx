@@ -17,11 +17,16 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
           {/* Company Info - Spans 3 columns */}
           <div className="lg:col-span-3">
             <div className="mb-6">
-              <img
-                src="/tc logo_01_white 1 copy.png"
-                alt="TO-CERT Logo"
-                className="h-16 mb-4"
-              />
+              <button
+                onClick={() => handleNavClick('home')}
+                className="group transition-all duration-300"
+              >
+                <img
+                  src="/tc logo_01_white 1 copy.png"
+                  alt="TO-CERT Logo"
+                  className="h-16 mb-4 transform group-hover:scale-105 transition-transform duration-300"
+                />
+              </button>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 text-sm">
               Global third-party assurance provider specialized in internationally recognized sustainability
