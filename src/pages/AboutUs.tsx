@@ -164,6 +164,11 @@ const AboutUs = () => {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="flex justify-center mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300">
+                <Shield className="w-10 h-10 text-white" />
+              </div>
+            </div>
             <h2 className="text-4xl font-bold text-honey-600 mb-4">Our Values</h2>
             <div className="h-1 w-24 bg-gradient-to-r bg-honey-500 mx-auto rounded-full mb-6" />
             <p className="text-xl text-gray-600">The principles that guide everything we do.</p>
