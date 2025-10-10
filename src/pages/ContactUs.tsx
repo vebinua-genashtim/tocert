@@ -34,7 +34,7 @@ const ContactUs = () => {
         message: formData.message,
       };
 
-      const response = await fetch('/send-contact-email.php', {
+      const response = await fetch('/api/send-contact-email.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
