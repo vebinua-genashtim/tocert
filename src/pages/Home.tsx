@@ -31,7 +31,7 @@ const Home = ({ setCurrentPage }: { setCurrentPage: (page: string) => void }) =>
               Helping Organizations Showcase Their ESG Impact
             </h1>
 
-            <p className="text-xl md:text-2xl text-white leading-relaxed drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+            <p className="text-xl md:text-2xl text-white font-bold leading-relaxed drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
               Global third-party assurance provider specialized in sustainability standards and B Corp certification
             </p>
           </div>
