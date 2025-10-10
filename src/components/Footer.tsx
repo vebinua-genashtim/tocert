@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Award, Shield, FileCheck, Linkedin, Facebook, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Award, Shield, FileCheck } from 'lucide-react';
 
 interface FooterProps {
   setCurrentPage: (page: string) => void;
@@ -36,30 +36,6 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
               To-Cert is a subsidiary of Genashtim
             </p>
 
-            {/* Social Media */}
-            <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-9 h-9 bg-charcoal-800 hover:bg-honey-500 rounded-lg flex items-center justify-center transition-all duration-300 group"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 bg-charcoal-800 hover:bg-honey-500 rounded-lg flex items-center justify-center transition-all duration-300 group"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 bg-charcoal-800 hover:bg-honey-500 rounded-lg flex items-center justify-center transition-all duration-300 group"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4 text-gray-400 group-hover:text-black transition-colors" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links - Spans 2 columns */}
