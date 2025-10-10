@@ -27,7 +27,27 @@ const ContactUs = () => {
     setSubmitError('');
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      const response = await fetch(
+        `${supabaseUrl}/functions/v1/send-contact-email`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabaseAnonKey}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      const result = await response.json();
+
       setSubmitSuccess(true);
       setShowPopup(true);
       setFormData({
@@ -38,6 +58,7 @@ const ContactUs = () => {
       });
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitError('Failed to submit form. Please try again.');
     } finally {
       setIsSubmitting(false);
