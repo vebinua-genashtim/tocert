@@ -116,7 +116,7 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
           <div className="lg:col-span-3">
             <h3 className="text-honey-400 font-bold text-base mb-6 uppercase tracking-wider flex items-center gap-2">
               <div className="w-1 h-5 bg-honey-500 rounded-full"></div>
-              Certification Services
+              Certification Process
             </h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3 group cursor-pointer" onClick={() => handleNavClick('initial-audit')}>
