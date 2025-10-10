@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, CheckCircle, FileText, ShieldCheck, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, FileText, ShieldCheck, MessageCircle, X } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
 
 const ContactUs = () => {
@@ -12,6 +12,7 @@ const ContactUs = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -28,6 +29,7 @@ const ContactUs = () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setSubmitSuccess(true);
+      setShowPopup(true);
       setFormData({
         fullName: '',
         companyName: '',
@@ -42,6 +44,10 @@ const ContactUs = () => {
     }
   };
 
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className="min-h-screen bg-honey-50/30">
       <PageBanner
@@ -51,7 +57,66 @@ const ContactUs = () => {
         theme="contact"
       />
 
-      
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-slideUp">
+            <div className="bg-gradient-to-r from-honey-500 via-amber-500 to-honey-500 p-6 relative">
+              <button
+                onClick={closePopup}
+                className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-2 transition-colors"
+                aria-label="Close notification"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                  <CheckCircle className="w-9 h-9 text-honey-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Success!</h3>
+                  <p className="text-honey-100 text-sm">Enquiry submitted</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-8 space-y-6">
+              <div>
+                <h4 className="text-lg font-bold text-honey-600 mb-2">Thank you for reaching out!</h4>
+                <p className="text-gray-700 leading-relaxed">
+                  Your enquiry has been successfully submitted. Our certification experts will review your message and get back to you within 24-48 hours.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-honey-50 to-amber-50 rounded-xl p-5 border-2 border-honey-200">
+                <h5 className="font-semibold text-honey-600 mb-3 text-sm uppercase tracking-wider">What happens next?</h5>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-honey-600 mt-0.5 flex-shrink-0" />
+                    <span>You will receive a confirmation email shortly</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-honey-600 mt-0.5 flex-shrink-0" />
+                    <span>Our team will review your requirements</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-honey-600 mt-0.5 flex-shrink-0" />
+                    <span>We'll contact you to discuss next steps</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                onClick={closePopup}
+                className="w-full bg-gradient-to-r from-honey-500 via-amber-500 to-honey-500 text-white font-bold py-4 rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-[1.02] uppercase tracking-wide text-sm"
+              >
+                Got it, thanks!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
