@@ -16,7 +16,7 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Company Info - Spans 3 columns */}
           <div className="lg:col-span-3">
-            <div className="mb-6">
+            <div className="mb-4">
               <button
                 onClick={() => handleNavClick('home')}
                 className="group transition-all duration-300"
