@@ -60,31 +60,22 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-honey-500 to-transparent"></div>
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-honey-400 via-amber-500 to-honey-400 opacity-60"></div>
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:flex lg:items-center lg:justify-left lg:space-x-2 pt-4 ml-6 pl-6">
-          <div className="flex-shrink-0">
-            <button
-              onClick={() => handleNavClick('home')}
-              className="group transition-all duration-300"
-            >
-              <img
-                src="/title.png"
-                alt="TO-CERT Logo"
-                className="h-16 transform group-hover:scale-105 transition-transform duration-300"
-              />
-            </button>
-          </div>
+        <div className="flex items-center justify-between py-4">
+          <div className="flex items-center flex-1">
+            <div className="flex-shrink-0 mr-8">
+              <button
+                onClick={() => handleNavClick('home')}
+                className="group transition-all duration-300"
+              >
+                <img
+                  src="/title.png"
+                  alt="TO-CERT Logo"
+                  className="h-16 transform group-hover:scale-105 transition-transform duration-300"
+                />
+              </button>
+            </div>
 
-          <div className="lg:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-honey-600 hover:bg-honey-50 transition-colors duration-200"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        <nav className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-2 pb-4">
+            <nav className="hidden lg:flex lg:items-center lg:space-x-2 flex-1">
           {navigation.map((item) => {
             const isMenuOpen = hoveredMenu === item.key || clickedMenu === item.key;
             const isActive = currentPage === item.key || isParentActive(item) || clickedMenu === item.key;
@@ -137,7 +128,18 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
               </div>
             );
           })}
-        </nav>
+            </nav>
+          </div>
+
+          <div className="lg:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-md text-honey-600 hover:bg-honey-50 transition-colors duration-200"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
 
         {mobileMenuOpen && (
           <div className="lg:hidden pb-4 animate-fade-in">
