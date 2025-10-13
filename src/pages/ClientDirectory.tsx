@@ -179,7 +179,7 @@ const ClientDirectory = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-honey-500 hover:bg-honey-600 text-honey-600 py-4 px-6 rounded-lg font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 transform hover:scale-[1.02] duration-200 uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-black hover:bg-gray-900 text-honey-500 py-4 px-6 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-[1.02] duration-200 uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={20} />
                 {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
