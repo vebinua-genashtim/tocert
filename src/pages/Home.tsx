@@ -2,9 +2,8 @@ import { Target, CheckCircle, Settings, Lock, Globe, Users, Shield, Briefcase, B
 import { useCountAnimation } from '../hooks/useCountAnimation';
 import { useInView } from '../hooks/useInView';
 import PageBanner from '../components/PageBanner';
-import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({ setCurrentPage }: { setCurrentPage: (page: string) => void }) => {
   const { ref: statsRef, isInView } = useInView(0.3);
 
   const years = useCountAnimation(4, 2000, 0, isInView);
@@ -276,13 +275,13 @@ const Home = () => {
           </p>
 
           <div className="flex justify-center items-center">
-            <Link
-              to="/contact-us"
+            <button
+              onClick={() => setCurrentPage('contact-us')}
               className="group bg-honey-500 hover:bg-honey-600 text-charcoal-900 font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 flex items-center gap-2 text-base"
             >
               Contact Us Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
 
-const Header = () => {
-  const location = useLocation();
-  const currentPage = location.pathname.slice(1) || 'home';
+interface HeaderProps {
+  currentPage: string;
+  setCurrentPage: (page: string) => void;
+}
+
+const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [clickedMenu, setClickedMenu] = useState<string | null>(null);
@@ -34,11 +36,11 @@ const Header = () => {
     { name: 'Contact Us', key: 'contact-us' },
   ];
 
-  const handleNavClick = () => {
+  const handleNavClick = (key: string) => {
+    setCurrentPage(key);
     setMobileMenuOpen(false);
     setHoveredMenu(null);
-    setClickedMenu(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setClickedMenu(null); // Reset clicked menu when navigating
   };
 
   const handleParentMenuClick = (key: string) => {
@@ -61,17 +63,16 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 mr-8">
-              <Link
-                to="/"
-                onClick={handleNavClick}
-                className="group transition-all duration-300 block"
+              <button
+                onClick={() => handleNavClick('home')}
+                className="group transition-all duration-300"
               >
                 <img
                   src="/title.png"
                   alt="TO-CERT Logo"
                   className="h-16 transform group-hover:scale-105 transition-transform duration-300"
                 />
-              </Link>
+              </button>
             </div>
 
             <nav className="hidden lg:flex lg:items-center lg:space-x-2 flex-1">
@@ -86,30 +87,22 @@ const Header = () => {
                 onMouseEnter={() => item.submenu && setHoveredMenu(item.key)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
-                {item.submenu ? (
-                  <button
-                    onClick={() => handleParentMenuClick(item.key)}
-                    className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
-                      isActive
-                        ? 'bg-honey-500 text-charcoal-900 shadow-md'
-                        : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
-                    }`}
-                  >
-                    <span className="relative z-10">{item.name}</span>
-                  </button>
-                ) : (
-                  <Link
-                    to={item.key === 'home' ? '/' : `/${item.key}`}
-                    onClick={handleNavClick}
-                    className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
-                      isActive
-                        ? 'bg-honey-500 text-charcoal-900 shadow-md'
-                        : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
-                    }`}
-                  >
-                    <span className="relative z-10">{item.name}</span>
-                  </Link>
-                )}
+                <button
+                  onClick={() => {
+                    if (item.submenu) {
+                      handleParentMenuClick(item.key);
+                    } else {
+                      handleNavClick(item.key);
+                    }
+                  }}
+                  className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                    isActive
+                      ? 'bg-honey-500 text-charcoal-900 shadow-md'
+                      : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
+                  }`}
+                >
+                  <span className="relative z-10">{item.name}</span>
+                </button>
 
                 {item.submenu && isMenuOpen && (
                   <div
@@ -118,18 +111,17 @@ const Header = () => {
                     onMouseLeave={() => setHoveredMenu(null)}
                   >
                     {item.submenu.map((subitem) => (
-                      <Link
+                      <button
                         key={subitem.key}
-                        to={`/${subitem.key}`}
-                        onClick={handleNavClick}
-                        className={`block w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
+                        onClick={() => handleNavClick(subitem.key)}
+                        className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
                           currentPage === subitem.key
                             ? 'bg-honey-50 text-honey-700 border-l-4 border-honey-500'
                             : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900 border-l-4 border-transparent'
                         }`}
                       >
                         {subitem.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -153,44 +145,30 @@ const Header = () => {
           <div className="lg:hidden pb-4 animate-fade-in">
             {navigation.map((item) => (
               <div key={item.key}>
-                {item.submenu ? (
-                  <button
-                    className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${
-                      currentPage === item.key || isParentActive(item)
-                        ? 'bg-honey-50 text-honey-700'
-                        : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link
-                    to={item.key === 'home' ? '/' : `/${item.key}`}
-                    onClick={handleNavClick}
-                    className={`block w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${
-                      currentPage === item.key || isParentActive(item)
-                        ? 'bg-honey-50 text-honey-700'
-                        : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                )}
+                <button
+                  onClick={() => !item.submenu && handleNavClick(item.key)}
+                  className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${
+                    currentPage === item.key || isParentActive(item)
+                      ? 'bg-honey-50 text-honey-700'
+                      : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900'
+                  }`}
+                >
+                  {item.name}
+                </button>
                 {item.submenu && (
                   <div className="pl-4 bg-honey-50/50">
                     {item.submenu.map((subitem) => (
-                      <Link
+                      <button
                         key={subitem.key}
-                        to={`/${subitem.key}`}
-                        onClick={handleNavClick}
-                        className={`block w-full text-left px-4 py-2 text-sm ${
+                        onClick={() => handleNavClick(subitem.key)}
+                        className={`w-full text-left px-4 py-2 text-sm ${
                           currentPage === subitem.key
                             ? 'text-honey-700 font-semibold'
                             : 'text-charcoal-600 hover:text-charcoal-900'
                         }`}
                       >
                         {subitem.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
