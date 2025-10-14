@@ -87,7 +87,7 @@ const Header = () => {
                 {item.submenu ? (
                   <button
                     onClick={() => handleParentMenuClick(item.key)}
-                    className={`px-3 xl:px-4 2xl:px-5 py-2 text-xs xl:text-sm 2xl:text-base font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight max-w-[140px] xl:max-w-[160px] 2xl:max-w-none ${
+                    className={`px-2 xl:px-3 2xl:px-4 py-2 text-[11px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
@@ -99,7 +99,7 @@ const Header = () => {
                   <Link
                     to={item.key === 'home' ? '/' : `/${item.key}`}
                     onClick={handleNavClick}
-                    className={`px-3 xl:px-4 2xl:px-5 py-2 text-xs xl:text-sm 2xl:text-base font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight max-w-[140px] xl:max-w-[160px] 2xl:max-w-none ${
+                    className={`px-2 xl:px-3 2xl:px-4 py-2 text-[11px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
