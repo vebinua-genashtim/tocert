@@ -87,25 +87,25 @@ const Header = () => {
                 {item.submenu ? (
                   <button
                     onClick={() => handleParentMenuClick(item.key)}
-                    className={`px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                    className={`px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group max-w-[200px] text-center ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
                     }`}
                   >
-                    <span className="relative z-10">{item.name}</span>
+                    <span className="relative z-10 leading-tight">{item.name}</span>
                   </button>
                 ) : (
                   <Link
                     to={item.key === 'home' ? '/' : `/${item.key}`}
                     onClick={handleNavClick}
-                    className={`px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                    className={`px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group max-w-[200px] text-center ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
                     }`}
                   >
-                    <span className="relative z-10">{item.name}</span>
+                    <span className="relative z-10 leading-tight">{item.name}</span>
                   </Link>
                 )}
 
