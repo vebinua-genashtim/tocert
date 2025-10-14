@@ -1,7 +1,10 @@
 import { Award } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const Certificate = () => {
+  usePageTitle('Certificate');
+
   return (
     <div className="min-h-screen bg-honey-50/30">
       <PageBanner

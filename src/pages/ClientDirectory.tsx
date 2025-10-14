@@ -1,8 +1,10 @@
 import { useState, FormEvent } from 'react';
 import { Send, X, Users } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const ClientDirectory = () => {
+  usePageTitle('Client Directory');
   const [formData, setFormData] = useState({
     name: '',
     contact: '',

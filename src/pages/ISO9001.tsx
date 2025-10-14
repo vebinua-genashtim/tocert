@@ -1,7 +1,10 @@
 import { Target } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const ISO9001 = () => {
+  usePageTitle('ISO 9001:2015');
+
   return (
     <div className="min-h-screen bg-honey-50/30">
       <PageBanner

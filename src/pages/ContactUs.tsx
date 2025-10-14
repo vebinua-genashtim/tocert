@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, CheckCircle, FileText, ShieldCheck, MessageCircle, X } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const ContactUs = () => {
+  usePageTitle('Contact Us');
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',

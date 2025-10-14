@@ -1,14 +1,7 @@
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Award, Shield, FileCheck } from 'lucide-react';
 
-interface FooterProps {
-  setCurrentPage: (page: string) => void;
-}
-
-const Footer = ({ setCurrentPage }: FooterProps) => {
-  const handleNavClick = (page: string) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-charcoal-900 to-black text-gray-200 border-t-4 border-t-honey-500">
@@ -17,8 +10,8 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
           {/* Company Info - Spans 3 columns */}
           <div className="lg:col-span-3">
             <div className="mb-0">
-              <button
-                onClick={() => handleNavClick('home')}
+              <Link
+                to="/"
                 className="group transition-all duration-300"
               >
                 <img
@@ -26,7 +19,7 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
                   alt="TO-CERT Logo"
                   className="h-16 mb-4 transform group-hover:scale-105 transition-transform duration-300"
                 />
-              </button>
+              </Link>
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 text-sm">
               Global third-party assurance provider specialized in internationally recognized sustainability
@@ -46,49 +39,49 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
             </h3>
             <ul className="space-y-2.5">
               <li>
-                <button
-                  onClick={() => handleNavClick('home')}
+                <Link
+                  to="/"
                   className="text-gray-300 hover:text-honey-400 transition-colors duration-200 text-left text-sm group flex items-center"
                 >
                   <span className="w-0 group-hover:w-1.5 h-1.5 bg-honey-500 rounded-full transition-all duration-200 mr-0 group-hover:mr-2"></span>
                   Home
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleNavClick('about-us')}
+                <Link
+                  to="/about-us"
                   className="text-gray-300 hover:text-honey-400 transition-colors duration-200 text-left text-sm group flex items-center"
                 >
                   <span className="w-0 group-hover:w-1.5 h-1.5 bg-honey-500 rounded-full transition-all duration-200 mr-0 group-hover:mr-2"></span>
                   About Us
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleNavClick('certificate')}
+                <Link
+                  to="/certificate"
                   className="text-gray-300 hover:text-honey-400 transition-colors duration-200 text-left text-sm group flex items-center"
                 >
                   <span className="w-0 group-hover:w-1.5 h-1.5 bg-honey-500 rounded-full transition-all duration-200 mr-0 group-hover:mr-2"></span>
                   Certificate
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleNavClick('client-directory')}
+                <Link
+                  to="/client-directory"
                   className="text-gray-300 hover:text-honey-400 transition-colors duration-200 text-left text-sm group flex items-center"
                 >
                   <span className="w-0 group-hover:w-1.5 h-1.5 bg-honey-500 rounded-full transition-all duration-200 mr-0 group-hover:mr-2"></span>
                   Client Directory
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleNavClick('contact-us')}
+                <Link
+                  to="/contact-us"
                   className="text-gray-300 hover:text-honey-400 transition-colors duration-200 text-left text-sm group flex items-center"
                 >
                   <span className="w-0 group-hover:w-1.5 h-1.5 bg-honey-500 rounded-full transition-all duration-200 mr-0 group-hover:mr-2"></span>
                   Contact Us
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -100,7 +93,7 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
               Certification Process
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start gap-3 group cursor-pointer" onClick={() => handleNavClick('initial-audit')}>
+              <Link to="/initial-audit" className="flex items-start gap-3 group cursor-pointer">
                 <div className="w-8 h-8 bg-charcoal-800 group-hover:bg-honey-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300">
                   <Award className="w-4 h-4 text-honey-400 group-hover:text-black transition-colors" />
                 </div>
@@ -108,8 +101,8 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
                   <div className="text-gray-200 font-semibold text-sm mb-0.5 group-hover:text-honey-400 transition-colors">Initial Audit</div>
                   <p className="text-gray-400 text-xs leading-relaxed">Comprehensive first-time certification assessment</p>
                 </div>
-              </div>
-              <div className="flex items-start gap-3 group cursor-pointer" onClick={() => handleNavClick('surveillance-audit')}>
+              </Link>
+              <Link to="/surveillance-audit" className="flex items-start gap-3 group cursor-pointer">
                 <div className="w-8 h-8 bg-charcoal-800 group-hover:bg-honey-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300">
                   <Shield className="w-4 h-4 text-honey-400 group-hover:text-black transition-colors" />
                 </div>
@@ -117,8 +110,8 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
                   <div className="text-gray-200 font-semibold text-sm mb-0.5 group-hover:text-honey-400 transition-colors">Surveillance Audit</div>
                   <p className="text-gray-400 text-xs leading-relaxed">Ongoing compliance verification and monitoring</p>
                 </div>
-              </div>
-              <div className="flex items-start gap-3 group cursor-pointer" onClick={() => handleNavClick('recertification-audit')}>
+              </Link>
+              <Link to="/recertification-audit" className="flex items-start gap-3 group cursor-pointer">
                 <div className="w-8 h-8 bg-charcoal-800 group-hover:bg-honey-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300">
                   <FileCheck className="w-4 h-4 text-honey-400 group-hover:text-black transition-colors" />
                 </div>
@@ -126,7 +119,7 @@ const Footer = ({ setCurrentPage }: FooterProps) => {
                   <div className="text-gray-200 font-semibold text-sm mb-0.5 group-hover:text-honey-400 transition-colors">Recertification Audit</div>
                   <p className="text-gray-400 text-xs leading-relaxed">Renewal assessment for continued certification</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 

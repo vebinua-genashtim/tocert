@@ -1,12 +1,10 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
-interface HeaderProps {
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
-}
-
-const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
+const Header = () => {
+  const location = useLocation();
+  const currentPage = location.pathname === '/' ? 'home' : location.pathname.slice(1);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [clickedMenu, setClickedMenu] = useState<string | null>(null);
@@ -36,11 +34,10 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
     { name: 'Contact Us', key: 'contact-us' },
   ];
 
-  const handleNavClick = (key: string) => {
-    setCurrentPage(key);
+  const handleNavClick = () => {
     setMobileMenuOpen(false);
     setHoveredMenu(null);
-    setClickedMenu(null); // Reset clicked menu when navigating
+    setClickedMenu(null);
   };
 
   const handleParentMenuClick = (key: string) => {
@@ -63,8 +60,8 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center flex-1">
             <div className="flex-shrink-0 mr-8">
-              <button
-                onClick={() => handleNavClick('home')}
+              <Link
+                to="/"
                 className="group transition-all duration-300"
               >
                 <img
@@ -72,7 +69,7 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
                   alt="TO-CERT Logo"
                   className="h-16 transform group-hover:scale-105 transition-transform duration-300"
                 />
-              </button>
+              </Link>
             </div>
 
             <nav className="hidden lg:flex lg:items-center lg:space-x-2 flex-1">
@@ -87,22 +84,30 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
                 onMouseEnter={() => item.submenu && setHoveredMenu(item.key)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
-                <button
-                  onClick={() => {
-                    if (item.submenu) {
-                      handleParentMenuClick(item.key);
-                    } else {
-                      handleNavClick(item.key);
-                    }
-                  }}
-                  className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
-                    isActive
-                      ? 'bg-honey-500 text-charcoal-900 shadow-md'
-                      : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
-                  }`}
-                >
-                  <span className="relative z-10">{item.name}</span>
-                </button>
+                {item.submenu ? (
+                  <button
+                    onClick={() => handleParentMenuClick(item.key)}
+                    className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                      isActive
+                        ? 'bg-honey-500 text-charcoal-900 shadow-md'
+                        : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                  </button>
+                ) : (
+                  <Link
+                    to={item.key === 'home' ? '/' : `/${item.key}`}
+                    onClick={handleNavClick}
+                    className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                      isActive
+                        ? 'bg-honey-500 text-charcoal-900 shadow-md'
+                        : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                  </Link>
+                )}
 
                 {item.submenu && isMenuOpen && (
                   <div
@@ -111,17 +116,18 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
                     onMouseLeave={() => setHoveredMenu(null)}
                   >
                     {item.submenu.map((subitem) => (
-                      <button
+                      <Link
                         key={subitem.key}
-                        onClick={() => handleNavClick(subitem.key)}
-                        className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
+                        to={`/${subitem.key}`}
+                        onClick={handleNavClick}
+                        className={`block w-full text-left px-5 py-3 text-sm font-medium transition-all duration-200 ${
                           currentPage === subitem.key
                             ? 'bg-honey-50 text-honey-700 border-l-4 border-honey-500'
                             : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900 border-l-4 border-transparent'
                         }`}
                       >
                         {subitem.name}
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -145,30 +151,42 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
           <div className="lg:hidden pb-4 animate-fade-in">
             {navigation.map((item) => (
               <div key={item.key}>
-                <button
-                  onClick={() => !item.submenu && handleNavClick(item.key)}
-                  className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${
-                    currentPage === item.key || isParentActive(item)
+                {item.submenu ? (
+                  <div className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${
+                    isParentActive(item)
                       ? 'bg-honey-50 text-honey-700'
-                      : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900'
-                  }`}
-                >
-                  {item.name}
-                </button>
+                      : 'text-charcoal-700'
+                  }`}>
+                    {item.name}
+                  </div>
+                ) : (
+                  <Link
+                    to={item.key === 'home' ? '/' : `/${item.key}`}
+                    onClick={handleNavClick}
+                    className={`block w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${
+                      currentPage === item.key
+                        ? 'bg-honey-50 text-honey-700'
+                        : 'text-charcoal-700 hover:bg-honey-50 hover:text-charcoal-900'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
                 {item.submenu && (
                   <div className="pl-4 bg-honey-50/50">
                     {item.submenu.map((subitem) => (
-                      <button
+                      <Link
                         key={subitem.key}
-                        onClick={() => handleNavClick(subitem.key)}
-                        className={`w-full text-left px-4 py-2 text-sm ${
+                        to={`/${subitem.key}`}
+                        onClick={handleNavClick}
+                        className={`block w-full text-left px-4 py-2 text-sm ${
                           currentPage === subitem.key
                             ? 'text-honey-700 font-semibold'
                             : 'text-charcoal-600 hover:text-charcoal-900'
                         }`}
                       >
                         {subitem.name}
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 )}

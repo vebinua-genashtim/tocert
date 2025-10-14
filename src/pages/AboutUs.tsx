@@ -1,7 +1,10 @@
 import { Shield, Scale, Info, Globe, Zap, Heart, Users } from 'lucide-react';
 import PageBanner from '../components/PageBanner';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 const AboutUs = () => {
+  usePageTitle('About Us');
+
   return (
     <div className="min-h-screen bg-honey-50/30">
       <PageBanner
