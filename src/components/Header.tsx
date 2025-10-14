@@ -14,7 +14,7 @@ const Header = () => {
     { name: 'About Us', key: 'about-us' },
     { name: 'Certificate', key: 'certificate' },
     { name: 'Client Directory', key: 'client-directory' },
-    { name: 'Assessment & Certification Regulation', key: 'assessment-regulation' },
+    { name: 'Assessment Regulation', key: 'assessment-regulation' },
     {
       name: 'Certification Process',
       key: 'certification-process',
@@ -25,7 +25,7 @@ const Header = () => {
       ],
     },
     {
-      name: 'Management System Standards',
+      name: 'Management Standards',
       key: 'management-standards',
       submenu: [
         { name: 'ISO 9001:2015', key: 'iso9001' },
