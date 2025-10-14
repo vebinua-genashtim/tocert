@@ -87,25 +87,25 @@ const Header = () => {
                 {item.submenu ? (
                   <button
                     onClick={() => handleParentMenuClick(item.key)}
-                    className={`px-2 xl:px-4 py-2 text-[10px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                    className={`px-2 xl:px-4 py-2 text-[10px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
                     }`}
                   >
-                    <span className="relative z-10 whitespace-nowrap">{item.name}</span>
+                    <span className="relative z-10 inline-block">{item.name}</span>
                   </button>
                 ) : (
                   <Link
                     to={item.key === 'home' ? '/' : `/${item.key}`}
                     onClick={handleNavClick}
-                    className={`px-2 xl:px-4 py-2 text-[10px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group ${
+                    className={`px-2 xl:px-4 py-2 text-[10px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
                     }`}
                   >
-                    <span className="relative z-10 whitespace-nowrap">{item.name}</span>
+                    <span className="relative z-10 inline-block">{item.name}</span>
                   </Link>
                 )}
 
