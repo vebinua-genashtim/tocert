@@ -80,14 +80,14 @@ const Header = () => {
             return (
               <div
                 key={item.key}
-                className="relative flex-shrink-0"
+                className="relative"
                 onMouseEnter={() => item.submenu && setHoveredMenu(item.key)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
                 {item.submenu ? (
                   <button
                     onClick={() => handleParentMenuClick(item.key)}
-                    className={`w-[100px] xl:w-[110px] 2xl:w-[140px] px-2 xl:px-3 2xl:px-4 py-2 text-xs xl:text-sm 2xl:text-base font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
+                    className={`min-w-[90px] lg:min-w-[100px] xl:min-w-[120px] 2xl:min-w-[140px] px-2 xl:px-3 2xl:px-4 py-2 text-xs xl:text-sm 2xl:text-base font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
@@ -99,7 +99,7 @@ const Header = () => {
                   <Link
                     to={item.key === 'home' ? '/' : `/${item.key}`}
                     onClick={handleNavClick}
-                    className={`block w-[100px] xl:w-[110px] 2xl:w-[140px] px-2 xl:px-3 2xl:px-4 py-2 text-xs xl:text-sm 2xl:text-base font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
+                    className={`block min-w-[90px] lg:min-w-[100px] xl:min-w-[120px] 2xl:min-w-[140px] px-2 xl:px-3 2xl:px-4 py-2 text-xs xl:text-sm 2xl:text-base font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
