@@ -72,7 +72,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <nav className="hidden lg:flex lg:items-center lg:space-x-1 xl:space-x-2 2xl:space-x-3 flex-1">
+            <nav className="hidden lg:flex lg:items-center lg:space-x-0.5 xl:space-x-1 2xl:space-x-3 flex-1">
           {navigation.map((item) => {
             const isMenuOpen = hoveredMenu === item.key || clickedMenu === item.key;
             const isActive = currentPage === item.key || isParentActive(item) || clickedMenu === item.key;
@@ -87,7 +87,7 @@ const Header = () => {
                 {item.submenu ? (
                   <button
                     onClick={() => handleParentMenuClick(item.key)}
-                    className={`px-2 xl:px-3 2xl:px-4 py-2 text-[11px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
+                    className={`px-1.5 xl:px-2 2xl:px-4 py-2 text-[10px] xl:text-[11px] 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight min-w-[80px] xl:min-w-[90px] ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
@@ -99,7 +99,7 @@ const Header = () => {
                   <Link
                     to={item.key === 'home' ? '/' : `/${item.key}`}
                     onClick={handleNavClick}
-                    className={`px-2 xl:px-3 2xl:px-4 py-2 text-[11px] xl:text-xs 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight ${
+                    className={`px-1.5 xl:px-2 2xl:px-4 py-2 text-[10px] xl:text-[11px] 2xl:text-sm font-semibold rounded-lg transition-all duration-300 relative overflow-hidden group text-center leading-tight min-w-[80px] xl:min-w-[90px] ${
                       isActive
                         ? 'bg-honey-500 text-charcoal-900 shadow-md'
                         : 'text-charcoal-700 hover:text-charcoal-900 hover:bg-honey-50'
