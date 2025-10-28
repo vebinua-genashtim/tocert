@@ -44,34 +44,43 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="py-12 -mt-12 relative z-10">
+      <section ref={statsRef} className="py-16 -mt-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-charcoal-900 to-gray-900 border-2 border-honey-500/20 rounded-2xl p-6 text-center hover:border-honey-500 hover:shadow-2xl transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Target className="w-8 h-8 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="relative bg-gradient-to-br from-charcoal-900 via-gray-900 to-charcoal-800 rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-500 group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-honey-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <Target className="w-9 h-9 text-white" />
+                </div>
+                <div className="text-5xl font-bold text-white mb-2 tracking-tight">{years}+</div>
+                <div className="text-sm text-honey-400 font-bold uppercase tracking-widest mb-3 letter-spacing-wide">Years</div>
+                <div className="text-sm text-gray-400 leading-relaxed">as B Lab Global assurance provider</div>
               </div>
-              <div className="text-4xl font-bold text-white mb-1">{years}+</div>
-              <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Years</div>
-              <div className="text-xs text-gray-400">as B Lab Global assurance provider</div>
             </div>
 
-            <div className="bg-gradient-to-br from-charcoal-900 to-gray-900 border-2 border-honey-500/20 rounded-2xl p-6 text-center hover:border-honey-500 hover:shadow-2xl transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <CheckCircle className="w-8 h-8 text-white" />
+            <div className="relative bg-gradient-to-br from-charcoal-900 via-gray-900 to-charcoal-800 rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-500 group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-honey-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <CheckCircle className="w-9 h-9 text-white" />
+                </div>
+                <div className="text-5xl font-bold text-white mb-2 tracking-tight">{companies.toLocaleString()}+</div>
+                <div className="text-sm text-honey-400 font-bold uppercase tracking-widest mb-3 letter-spacing-wide">Companies</div>
+                <div className="text-sm text-gray-400 leading-relaxed">verified worldwide</div>
               </div>
-              <div className="text-4xl font-bold text-white mb-1">{companies.toLocaleString()}+</div>
-              <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Companies</div>
-              <div className="text-xs text-gray-400">verified worldwide</div>
             </div>
 
-            <div className="bg-gradient-to-br from-charcoal-900 to-gray-900 border-2 border-honey-500/20 rounded-2xl p-6 text-center hover:border-honey-500 hover:shadow-2xl transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Globe className="w-8 h-8 text-white" />
+            <div className="relative bg-gradient-to-br from-charcoal-900 via-gray-900 to-charcoal-800 rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-500 group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-honey-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <Globe className="w-9 h-9 text-white" />
+                </div>
+                <div className="text-5xl font-bold text-white mb-2 tracking-tight">{countries}+</div>
+                <div className="text-sm text-honey-400 font-bold uppercase tracking-widest mb-3 letter-spacing-wide">Countries</div>
+                <div className="text-sm text-gray-400 leading-relaxed">served globally</div>
               </div>
-              <div className="text-4xl font-bold text-white mb-1">{countries}+</div>
-              <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Countries</div>
-              <div className="text-xs text-gray-400">served globally</div>
             </div>
           </div>
         </div>
