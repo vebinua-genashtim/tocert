@@ -46,7 +46,7 @@ const Home = () => {
       {/* Stats Section */}
       <section ref={statsRef} className="py-12 -mt-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-charcoal-900 to-gray-900 border-2 border-honey-500/20 rounded-2xl p-6 text-center hover:border-honey-500 hover:shadow-2xl transition-all duration-300 group">
               <div className="w-14 h-14 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <Target className="w-8 h-8 text-white" />
@@ -72,15 +72,6 @@ const Home = () => {
               <div className="text-4xl font-bold text-white mb-1">{countries}+</div>
               <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Countries</div>
               <div className="text-xs text-gray-400">served globally</div>
-            </div>
-
-            <div className="bg-gradient-to-br from-charcoal-900 to-gray-900 border-2 border-honey-500/20 rounded-2xl p-6 text-center hover:border-honey-500 hover:shadow-2xl transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-honey-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-white mb-1">100%</div>
-              <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Flexible</div>
-              <div className="text-xs text-gray-400">delivery model</div>
             </div>
           </div>
         </div>
