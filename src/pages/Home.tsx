@@ -79,8 +79,8 @@ const Home = () => {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <div className="text-4xl font-bold text-white mb-1">100%</div>
-              <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Remote</div>
-              <div className="text-xs text-gray-400">distributed team</div>
+              <div className="text-sm text-honey-400 font-semibold uppercase tracking-wider mb-2">Flexible</div>
+              <div className="text-xs text-gray-400">delivery model</div>
             </div>
           </div>
         </div>
