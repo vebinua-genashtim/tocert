@@ -69,7 +69,7 @@ const AboutUs = () => {
             </p>
 
             <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
-              Before appointment, To-Cert Pte. Ltd. carefully evaluates proposed Assessment Committee members to assess any potential impact on impartiality. Measures are taken to ensure that no single interest dominates decision making.
+              Before appointment, To-Cert Pte. Ltd. carefully evaluates proposed Impartiality Committee members to assess any potential impact on impartiality. Measures are taken to ensure that no single interest dominates decision making.
             </p>
           </div>
         </div>
