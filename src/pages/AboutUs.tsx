@@ -248,6 +248,37 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-honey-50/30">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center mb-12">
+            <div className="w-20 h-20 bg-gradient-to-br bg-honey-500 rounded-2xl flex items-center justify-center shadow-2xl">
+              <Scale className="w-10 h-10 text-black" />
+            </div>
+          </div>
+
+          <h2 className="text-4xl font-bold text-honey-600 mb-8 text-center">Impartiality Policy</h2>
+          <div className="h-1 w-24 bg-gradient-to-r bg-honey-500 mx-auto rounded-full mb-12" />
+
+          <div className="space-y-6 text-gray-700 leading-relaxed">
+            <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
+              To-Cert Pte. Ltd. takes its duty to maintain impartiality and independence seriously in all parts of its certification activities.
+            </p>
+
+            <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
+              To protect its integrity and professional reputation, To-Cert Pte. Ltd. ensures that decisions and policies are made, and are seen to be made, without bias. Conflicts of interest are prevented where possible and properly managed when they arise, so they do not affect any certification activity.
+            </p>
+
+            <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
+              To meet impartiality requirements, To-Cert Pte. Ltd. has established and implemented clear policies and documented procedures for its certification operations. This includes the creation of an Assessment Committee whose members are fully independent and responsible for overseeing certification activities and confirming they are carried out impartially.
+            </p>
+
+            <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
+              Before appointment, To-Cert Pte. Ltd. carefully evaluates proposed Assessment Committee members to assess any potential impact on impartiality. Measures are taken to ensure that no single interest dominates decision making.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
