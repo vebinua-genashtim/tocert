@@ -65,7 +65,7 @@ const AboutUs = () => {
             </p>
 
             <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
-              To meet impartiality requirements, To-Cert Pte. Ltd. has established and implemented clear policies and documented procedures for its certification operations. This includes the creation of an Assessment Committee whose members are fully independent and responsible for overseeing certification activities and confirming they are carried out impartially.
+              To meet impartiality requirements, To-Cert Pte. Ltd. has established and implemented clear policies and documented procedures for its certification operations. This includes the creation of an Impartiality Committee whose members are fully independent and responsible for overseeing certification activities and confirming they are carried out impartially.
             </p>
 
             <p className="text-lg bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border-l-4 border-honey-500">
