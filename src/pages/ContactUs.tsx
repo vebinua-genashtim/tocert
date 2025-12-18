@@ -210,7 +210,7 @@ const ContactUs = () => {
                       <CheckCircle className="w-6 h-6 text-honey-600" />
                     </div>
                     <div className="flex-1 pt-1.5">
-                      <p className="text-charcoal-800 text-base leading-relaxed">Initial consultation to understand your requirements and objectives</p>
+                      <p className="text-charcoal-800 text-base leading-relaxed">Engage us to understand your requirements and objectives</p>
                     </div>
                   </div>
 
