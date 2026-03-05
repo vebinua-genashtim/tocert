@@ -73,7 +73,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <nav className="hidden lg:flex lg:items-start lg:space-x-1 xl:space-x-2 2xl:space-x-3 flex-1">
+            <nav className="hidden lg:flex lg:items-center lg:space-x-1 xl:space-x-2 2xl:space-x-3 flex-1">
           {navigation.map((item) => {
             const isMenuOpen = hoveredMenu === item.key || clickedMenu === item.key;
             const isActive = currentPage === item.key || isParentActive(item) || clickedMenu === item.key;
