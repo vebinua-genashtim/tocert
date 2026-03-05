@@ -31,6 +31,7 @@ const Header = () => {
         { name: 'ISO 9001:2015', key: 'iso9001' },
       ],
     },
+    { name: 'Complaints and Appeals', key: 'complaints-and-appeals' },
     { name: 'Contact Us', key: 'contact-us' },
   ];
 
