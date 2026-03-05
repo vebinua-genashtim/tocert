@@ -9,6 +9,7 @@ import InitialAudit from './pages/InitialAudit';
 import SurveillanceAudit from './pages/SurveillanceAudit';
 import RecertificationAudit from './pages/RecertificationAudit';
 import ISO9001 from './pages/ISO9001';
+import ComplaintsAndAppeals from './pages/ComplaintsAndAppeals';
 import ContactUs from './pages/ContactUs';
 
 export const router = createBrowserRouter([
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: 'iso9001',
         element: <ISO9001 />,
+      },
+      {
+        path: 'complaints-and-appeals',
+        element: <ComplaintsAndAppeals />,
       },
       {
         path: 'contact-us',
